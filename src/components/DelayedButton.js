@@ -1,7 +1,10 @@
 import React from 'react';
+import withTimer from './withTimer.js';
 
-export default function DelayedButton({ ticks }) {
+function DelayedButton({ ticks }) {
   return (
     <button disabled={ticks < 5}>Click me after 5 seconds</button>
   );
 }
+
+export default withTimer(DelayedButton);
