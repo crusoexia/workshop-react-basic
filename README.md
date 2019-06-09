@@ -1,4 +1,4 @@
-# React Basics workshop
+# React Basics Workshop
 
 In this workshop we will cover the basics of **React**, especially for component reuse patterns known as *render props* and *HOC*.
 
@@ -14,9 +14,13 @@ There are working branches for each phase, run `git branch -r` for an overview, 
 
 Implement a `Ticker` component which will instantly update how many seconds passed since the component did mount to the DOM.
 
+![phase1](./docs/Phase1.png)
+
 ### Phase 2: DelayedButton
 
 Implement a `DelayedButton` component which only allow user to click after 5 seconds when it mount to the DOM.
+
+![phase2](./docs/Phase2.png)
 
 ### Phase 3: `render props` - Timer
 
