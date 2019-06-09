@@ -1,18 +1,19 @@
 import React from 'react';
 
-export default class Ticker extends React.Component {
+export default class DelayedButton extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      ticks: 0
+      disabled: true
     };
   }
 
   componentDidMount() {
+    let tickCount = 0;
     this.interval = setInterval(() => {
       this.setState({
-        ticks: this.state.ticks + 1
+        disabled: ++tickCount < 5
       })
     }, 1000);
   }
@@ -22,9 +23,9 @@ export default class Ticker extends React.Component {
   }
 
   render() {
-    const { ticks } = this.state;
+    const { disabled } = this.state;
     return (
-      <div>{ticks} Ticks</div>
+      <button disabled={disabled}>Click me after 5 seconds</button>
     );
   }
 }
