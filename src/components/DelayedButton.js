@@ -5,15 +5,14 @@ export default class DelayedButton extends React.Component {
     super(props);
 
     this.state = {
-      disabled: true
+      ticks: 0
     };
   }
 
   componentDidMount() {
-    let tickCount = 0;
     this.interval = setInterval(() => {
       this.setState({
-        disabled: ++tickCount < 5
+        ticks: this.state.ticks + 1
       })
     }, 1000);
   }
@@ -23,9 +22,16 @@ export default class DelayedButton extends React.Component {
   }
 
   render() {
-    const { disabled } = this.state;
+    const { ticks } = this.state;
+    const disabled = ticks < 5;
     return (
-      <button disabled={disabled}>Click me after 5 seconds</button>
+      <button disabled={disabled}>
+        {
+          disabled
+            ? `Click me after ${ 5 - ticks } seconds`
+            : 'Click me'
+        }
+      </button>
     );
   }
 }
